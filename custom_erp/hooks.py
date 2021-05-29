@@ -91,13 +91,19 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+
+	"Opportunity": {
+			"validate":"custom_erp.ruff.ruff.create_customer",
+
+		},
+        "User":{
+            
+                 "after_insert":"custom_erp.ruff.ruff.set_role_field",
+
+            },
+               
+}
 
 # Scheduled Tasks
 # ---------------
